@@ -68,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+I just created a simple react dynamic list that adds a list of items I input automatically
+
+```jsx
+return (
+    <div className="container">
+      <h2>Dynamic List Manager</h2>
+      <div className="input-group">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Enter an item"
+        />
+        <button onClick={handleAddItem}>Add Item</button>
+      </div>
+      <ul className="list">
+        {items.length === 0 && (
+          <li className="text-success">First item</li>
+        )}
+        {items.map((item, index) => (
+          <li key={index} className="list-item">{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
